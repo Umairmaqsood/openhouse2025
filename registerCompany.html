@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>FUSST Open House 2025</title>
+	<link rel="icon" type="image/png" href="img/oh_favicon-removebg.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/cdstyle.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i" rel="stylesheet" />
+    <style>
+        body {
+            background: #025492;
+        }
+		
+        .ball {
+            position: absolute;
+            border-radius: 25%;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
+        <div class="container-fluid">
+      
+          <!-- Logo + Title -->
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="img/openhouse2024_nobg.png" alt="Logo" style="width: 80px; height: 80px;" class="mr-2">
+            <span class="font-weight-bold ml-2">Open House 2025</span>
+          </a>
+      
+          <!-- Toggler for mobile -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Links and Button inside collapsible area -->
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav mx-auto">
+              <a class="nav-item nav-link active" style="font-weight: bold;" href="index.html">Home</a>
+              <a class="nav-item nav-link" style="font-weight: bold;" href="department.html">Departments</a>
+              <a class="nav-item nav-link" style="font-weight: bold;" href="./Schedule.html">Schedule</a>
+              <a class="nav-item nav-link" style="font-weight: bold;" href="./sponsorship_categories.html">Support Opportunities</a>
+              <a class="nav-item nav-link" style="font-weight: bold;" href="sponsors.html">Sponsors</a>
+              <!-- <a class="nav-item nav-link" style="font-weight: bold;" href="#participants">Participating Companies</a> -->
+              <a class="nav-item nav-link" style="font-weight: bold;" href="contact_us.html">Contact Us</a>
+            </div>
+      
+            <!-- Admin login on right inside collapse -->
+            <div class="navbar-nav ml-auto">
+              <a class="btn btn-outline-primary btn-sm" href="./adminlogin.html">Admin Login</a>
+            </div>
+          </div>
+      
+        </div>
+      </nav>
+    <!-- Navbar -->
+    <div class=" container mt-5 mb-5" style="width:100%;">
+        <div class=" card">
+            <div class=" card-header" align="center"><h4><strong>Company Registration Form</strong></h4></div>
+            <div class=" card-body">
+                <!-- form start -->
+                <form name="myForm" class="needs-validation" action="connectComp.php" onsubmit="return validateForm()" method="POST" novalidate>
+                    <!-- project title -->
+                    <div class=" form-group">
+						<input type="hidden" name="user_count" id="user_count" value =""/>
+                        <label for="inputTeamName">Company Name </label>
+                        <input type="text" name="compName" class="form-control" id="inputTeamName"
+                            placeholder="Enter Your Company Name Here" required />
+                        <div class="invalid-feedback">
+                            Please enter valid information
+                        </div>
+                    </div>
+					<!-- web address -->
+					<div class="form-group">
+                        <label for="inputWebAdd">Company's Web Address</label>
+                        <input type="text" name="compWeb" class="form-control" id="inputWebAdd"
+                            placeholder="www.company.com" required />
+                        <div class="invalid-feedback">
+                            Please enter valid information
+                        </div>
+                    </div>
+                    <!-- email -->
+                    <div class="form-group">
+                        <label for="inputTeamEmail">Company's Email Address</label>
+                        <input type="email" name="compEmail" class="form-control" id="inputTeamEmail"
+                            placeholder="name@example.com" required />
+                        <div class="invalid-feedback">
+                            Please enter valid information
+                        </div>
+                    </div>
+                    <!-- Participating Faculty -->
+                    <!-- <div id="facultyNumber" class=" form-group">
+                        <label>Projects To Visit:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Faculty" id="inlineRadio4" value="1" checked />
+                            <label class="form-check-label" for="inlineRadio4">Faculty of Engineering & IT</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Faculty" id="inlineRadio5" value="2" />
+                            <label class="form-check-label" for="inlineRadio5">Faculty of Management Sciences</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Faculty" id="inlineRadio6" value="3" />
+                            <label class="form-check-label" for="inlineRadio6">Both</label>
+                        </div>
+                    </div> -->
+
+                    <!-- Optional Vehicle No field -->
+<div class="form-group mt-3">
+    <label for="vehicleNo">Vehicle No</label>
+    <input type="text" class="form-control" id="vehicleNo" name="vehicleNo" placeholder="Enter vehicle number (if any)">
+  </div>
+                  
+
+                   <!-- Faculties Checkboxes -->
+<div id="facultyNumber" class="form-group">
+    <label><strong>Please select the faculty and department(s) the company wishes to visit:</strong></label><br>
+  
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="departments[]" id="eng_it" value=1>
+      <label class="form-check-label" for="eng_it">
+        Faculty of Engineering & IT (Dept. of SE,ECE,ET,Bio-Medical).
+      </label>
+    </div>
+  
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="departments[]" id="mgmt" value=2>
+      <label class="form-check-label" for="mgmt">
+        Faculty of Management Sciences (Dept. of BBA, E&F,Tourism & Hospitality).
+      </label>
+    </div>
+  
+  
+  
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="departments[]" id="arts" value=6>
+      <label class="form-check-label" for="arts">
+        Department of Arts and Media Sciences
+      </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="departments[]" id="english" value=4>
+        <label class="form-check-label" for="english">
+          Department of English
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="departments[]" id="psych" value=5>
+        <label class="form-check-label" for="psych">
+          Department of Psychology
+        </label>
+      </div>
+
+
+</div>
+
+                      
+                    
+                    <!-- team number -->
+                    <div id="teamNumber" class=" form-group">
+                        <label>Visting Member(s):&nbsp&nbsp</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="teamMemberNo" id="inlineRadio1" value="1" checked />
+                            <label class="form-check-label" for="inlineRadio1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="teamMemberNo" id="inlineRadio2" value="2" />
+                            <label class="form-check-label" for="inlineRadio2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline" style="display: none;">
+                            <input class="form-check-input" type="radio" name="teamMemberNo" id="inlineRadio3" value="3" />
+                            <label class="form-check-label" for="inlineRadio3">3</label>
+                        </div>
+                    </div>
+                    <!-- 1st member info -->
+                    <div class=" row">
+                        <div class=" col-md-4">
+                            <!-- //member name -->
+                            <div class="form-group">
+                                <label for="inputMemberName0">1st Member Details</label>
+                                <input type="text" class="form-control" name="memberName0" required
+                                    id="inputMemberName0" placeholder="Name" />
+                            </div>
+                            <!-- member designation -->
+                            <div class="form-group">
+                                <!-- <label for="inputMemberName0">Designation</label> -->
+                                <input type="text" class="form-control" name="memberDesig0" required
+                                    id="inputMemberDesig0" placeholder="Designation" />
+                            </div>
+                            <!-- email  -->
+
+                            <div class="form-group">
+                                <!-- <label for="inputMemberName0">Designation</label> -->
+                                <input type="email" class="form-control" name="memberemail0" required
+                                    id="inputMemberEmail0" placeholder="Email" />
+                            </div>
+
+                            <!-- member phone -->
+                            <div class="form-group">
+                                <!-- <label for="inputPhoneNumber0">Phone Number</label> -->
+                                <input type="text" class="form-control" name="memberPhone0" required
+                                    id="inputPhoneNumber0" placeholder="Contact No" onkeypress="return isNumberKey(event)"/>
+                            </div>
+                        </div>
+                        <!-- 2nd member details -->
+                        <div class=" col-md-4">
+                            <!-- name  -->
+                            <div class="form-group">
+                                <label for="inputMemberName1">2nd Member Details</label>
+                                <input type="text" class="form-control" name="memberName1" id="inputMemberName1"
+                                    placeholder="Name" />
+                            </div>
+                            <!-- member designation -->
+                            <div class="form-group">
+                                <!-- <label for="inputMemberName0">Designation</label> -->
+                                <input type="text" class="form-control" name="memberDesig1" id="inputMemberDesig1"
+                                    placeholder="Designation" />
+                            </div>
+                            <!-- email  -->
+
+                            <div class="form-group">
+                                <!-- <label for="inputMemberName0">Designation</label> -->
+                                <input type="email" class="form-control" name="memberemail1" id="inputMemberEmail1"
+                                    placeholder="Email" />
+                            </div>
+
+                            <!-- member phone -->
+                            <div class="form-group">
+                                <!-- <label for="inputPhoneNumber0">Phone Number</label> -->
+                                <input type="text" class="form-control" name="memberPhone1" id="inputPhoneNumber1"
+                                    placeholder="Contact No" onkeypress="return isNumberKey(event)"/>
+                            </div>
+
+                        </div>
+                        <!-- 3rd member Details -->
+                        <div class=" col-md-4" style="display: none;">
+                            <!-- name  -->
+                            <div class="form-group">
+                                <label for="inputMemberName2">3rd Member Details</label>
+                                <input type="text" class="form-control" name="memberName2" id="inputMemberName2"
+                                    placeholder="Name" />
+                            </div>
+                            <!-- member designation -->
+                            <div class="form-group">
+                                <!-- <label for="inputMemberName0">Designation</label> -->
+                                <input type="text" class="form-control" name="memberDesig2" id="inputMemberDesig2"
+                                    placeholder="Designation" />
+                            </div>
+                            <!-- email  -->
+
+                            <div class="form-group">
+                                <!-- <label for="inputMemberName0">Designation</label> -->
+                                <input type="email" class="form-control" name="memberemail2" id="inputMemberEmail2"
+                                    placeholder="Email" />
+                            </div>
+
+                            <!-- member phone -->
+                            <div class="form-group">
+                                <!-- <label for="inputPhoneNumber0">Phone Number</label> -->
+                                <input type="text" class="form-control" name="memberPhone2" id="inputPhoneNumber2"
+                                    placeholder="Contact No" onkeypress="return isNumberKey(event)"/>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+					<div style="text-align:center;">
+                    <button name="btnSubmit" type="submit" class="btn btn-primary" 
+                    
+            value="submit">
+                        Submit
+                    </button>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Restrict to numeric input only
+        function isNumberKey(evt) {
+            var charCode = evt.which ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    
+        // Bootstrap validation logic
+        function validateForm() {
+            let form = document.forms['myForm'];
+            let valid = true;
+    
+            // Loop over all form controls
+            let elements = form.querySelectorAll('input[required], select[required], textarea[required]');
+    
+            elements.forEach((element) => {
+                if (!element.value.trim()) {
+                    element.classList.add('is-invalid');
+                    valid = false;
+                } else {
+                    element.classList.remove('is-invalid');
+                    element.classList.add('is-valid');
+                }
+            });
+    
+            return valid;
+        }
+    
+        // Remove red border on input change
+        document.addEventListener('DOMContentLoaded', function () {
+            const formElements = document.querySelectorAll('input, select, textarea');
+            formElements.forEach((element) => {
+                element.addEventListener('input', () => {
+                    if (element.classList.contains('is-invalid')) {
+                        element.classList.remove('is-invalid');
+                        element.classList.add('is-valid');
+                    }
+                });
+            });
+        });
+    </script>
+    
+
+    <script>
+    function callmembersValidation() {
+        var members = document.getElementsByName("teamMemberNo");
+        var memberNo = 1;
+		
+        for (let i = 0; i < members.length; i++) {
+            if (members[i].checked) {
+                memberNo = members[i].value;
+				document.getElementById("user_count").value = memberNo;
+			
+            }
+			
+        }
+        for (let i = 0; i < memberNo; i++) {
+            let concdata = "inputMemberName" + i;
+            document.getElementById(concdata).setAttribute("required", "");
+            document.getElementById(concdata).disabled = false;
+            concdata = "inputMemberDesig" + i;
+            document.getElementById(concdata).setAttribute("required", "");
+            document.getElementById(concdata).disabled = false;
+            concdata = "inputPhoneNumber" + i;
+            document.getElementById(concdata).setAttribute("required", "");
+            document.getElementById(concdata).disabled = false;
+			concdata = "inputMemberEmail" + i;
+            document.getElementById(concdata).setAttribute("required", "");
+            document.getElementById(concdata).disabled = false;
+        }
+        for (let i = 2; i >= memberNo; i--) {
+            let concdata = "inputMemberName" + i;
+            document.getElementById(concdata).removeAttribute("required");
+            document.getElementById(concdata).disabled = true;
+            concdata = "inputMemberDesig" + i;
+            document.getElementById(concdata).removeAttribute("required");
+            document.getElementById(concdata).disabled = true;
+            concdata = "inputPhoneNumber" + i;
+            document.getElementById(concdata).removeAttribute("required");
+            document.getElementById(concdata).disabled = true;
+			concdata = "inputMemberEmail" + i;
+            document.getElementById(concdata).removeAttribute("required");
+            document.getElementById(concdata).disabled = true;
+        }
+    }
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        "use strict";
+        window.addEventListener(
+            "load",
+            function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName("needs-validation");
+                //console.log("mai ider hoon");
+                callmembersValidation();
+                document
+                    .getElementById("teamNumber")
+                    .addEventListener("click", function (event) {
+                        callmembersValidation();
+                    });
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener(
+                        "submit",
+                        function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add("was-validated");
+                        },
+                        false
+                    );
+                });
+            },
+            false
+        );
+    })();
+
+        function validateForm() {
+  let x = document.forms["myForm"]["compName"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+
+function isNumberKey(evt) {
+  var charCode = (evt.which) ? evt.which : evt.keyCode
+  if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+  return true;
+}
+    </script>
+
+
+    <script>
+        // Some random colors
+        const colors = ["#7393B3", "#000000", "#ffffff"];
+
+        const numBalls = 300;
+        const balls = [];
+
+        for (let i = 0; i < numBalls; i++) {
+            let ball = document.createElement("div");
+            ball.classList.add("ball");
+            ball.style.background =
+                colors[Math.floor(Math.random() * colors.length)];
+            ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+            ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+            ball.style.transform = `scale(${Math.random()})`;
+            ball.style.width = `${Math.random()}em`;
+            ball.style.height = ball.style.width;
+
+            balls.push(ball);
+            document.body.append(ball);
+        }
+
+        // Keyframes
+        balls.forEach((el, i, ra) => {
+            let to = {
+                x:
+                    Math.random() *
+                    (i % 2 === 0
+                        ? Math.random() * (-20 - 0) + 0
+                        : Math.random() * (0 - 20) + 20),
+                y: Math.random() * (Math.random() * (20 - -20) + -20)
+            };
+
+            let anim = el.animate(
+                [
+                    { transform: "translate(0, 0)" },
+                    { transform: `translate(${to.x}rem, ${to.y}rem)` }
+                ],
+                {
+                    duration: (Math.random() + 1) * 2000, // random duration
+                    direction: "alternate",
+                    fill: "both",
+                    iterations: Infinity,
+                    easing: "ease-in-out"
+                }
+            );
+        });
+    </script>
+    <footer style="background-color: #f5f5f5; position: float; bottom: 0; width: 100%;" class=" mt-auto py-3 text-center">
+	  <hr>
+        <strong>&copy; 2025 </strong> Faculty of Engineering & IT, FUSST
+      </footer>
+</body>
+
+</html>

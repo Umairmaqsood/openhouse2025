@@ -1,0 +1,23 @@
+/*countdown*/
+.cdBox {
+    background: #011c49;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    min-width: 100px;
+    max-width: 100px;
+    height: 86px;
+    margin: 0 3px;
+}
+.cdTime {
+    font-size: 36.03pt;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+}
+.cdLabel {
+    font-size: 12px;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+}
